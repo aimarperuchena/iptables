@@ -40,7 +40,7 @@ iptables -A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -A INPUT -d 11.1.21.254 -i ens224 -2 -p tcp --dport 22 -j ACCEPT
 
 # PARA PODER HACER PING DESDE CUALQUIER LA MÁQUINA AL FW
-iptables -A INPUT -o  ens161 -j -p icmp --icmp-type echo-request -j ACCEPT
+#iptables -A INPUT -o  ens161 -j -p icmp --icmp-type echo-request -j ACCEPT
 
 #------------------DOCKER_DB------------------------------------------------------------------------------------
 #Para aceptar la conexión ssh de la subred de la LAN
@@ -83,4 +83,5 @@ iptables -A FORWARD -d 192.168.21.227 -p udp --dport 53 -j ACCEPT
 
 
 #-------------------ESCRITORIO REMOTO--------------------------------
-iptables -A FORWARD -s 10.60.5.0/16 -d 192.168.21.169 -p tcp,udp --dport 3389 -j ACCEPT
+iptables -A FORWARD -s 10.60.5.0/16 -d 192.168.21.169 -p tcp --dport 3389 -j ACCEPT
+iptables -A FORWARD -s 10.60.5.0/16 -d 192.168.21.169 -p udp --dport 3389 -j ACCEPT

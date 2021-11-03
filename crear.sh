@@ -83,4 +83,4 @@ iptables -A FORWARD -d 192.168.21.227 -p udp --dport 53 -j ACCEPT
 
 
 #-------------------ESCRITORIO REMOTO--------------------------------
-iptables -A FORWARD -s 11.1.21.254 -d 192.168.21.169 -p tcp,udp --dport 3389 -j ACCEPT
+iptables -A FORWARD -s 10.60.5.0 -d 192.168.21.169 -p tcp,udp --dport 3389 -j ACCEPT

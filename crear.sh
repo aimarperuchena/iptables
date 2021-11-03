@@ -83,6 +83,7 @@ iptables -A FORWARD -d 192.168.21.227 -p udp --dport 53 -j ACCEPT
 
 
 #-------------------ESCRITORIO REMOTO--------------------------------
-iptables -A FORWARD -i ens192 -o ens224 -s 10.60.5.0/16 -d 192.168.21.169 -p udp --dport 3389 -j ACCEPT
-iptables -A PREROUTING -i ens192 -p tcp --dport 3389 -j DNAT --to 192.168.21.169 
+iptables -A FORWARD -i ens192 -o ens224 -s 10.60.5.7 -d 192.168.21.169 -p udp --dport 3389 -j ACCEPT
+iptables -A FORWARD -i ens192 -o ens224 -s 10.60.5.10 -d 192.168.21.169 -p udp --dport 3389 -j ACCEPT
+iptables -t nat -A PREROUTING -i ens192 -p tcp --dport 3389 -j DNAT --to 192.168.21.169 
 
